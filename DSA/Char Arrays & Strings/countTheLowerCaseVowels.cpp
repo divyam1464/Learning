@@ -1,0 +1,19 @@
+#include<iostream>
+#include<string>
+using namespace std ; 
+
+int main()
+{
+    string testStr = "p9xV2QnL7sZkD3mH8tWjE4rB0fYcG5uAaX1oI6lM9qP2vJ7yRzN8dC3hK0sUeF4gT1wL5bO6iQ9xV7nM2pZ0kD3yH8tR4jE5uC1fG6lA9qW7vN2oI0mK3bS8gL5hT1cU9rD6xP7nF2eJ0qV4zN1yM8oW3pK7lH5iC9tG6dA2bR0xS8uL4jM1wF7vQ3kY9gO2hT6nU0mP5cE7rJ1zN4iW8oL2vK3yX0qD9gF5uT6pB8jR7hM1aS4kC2nO0mL9vW3yI5tE7qN6dU1rJ4fK8gX0cP2oN9lM7sV5kD3yR6hJ8uB1nF4tC2gO0mL9pK7wV5dQ8rT1iJ6yX3uH4sN0fE2cU9oL7aM5kG1tR6nP4wV8hD3jY9qB2gX0iO5uL7rF1nM4sK9tC3vJ6pE8oW2hU0dR5kN7gQ1yT4jL9mF2uX3vP8aC6rO0nI7oH5wK1tM9jS2gV4lY8fD3pN6uQ0cR7hJ5xL1oT9mG2vU8kW4rE6nP0aF7jC5yX1tN9hV2uK8gO4mL3wS6rD0pJ7oT1yF9nK2lU8qV4gM5xW0hR7jC9tE1uO6pN3kL8mD4yS2rT0vG9hJ7oF5uK1nX8wP3qM6gL2cY4tR9jV7oN5mS1uK8lD3hE6pO0vW2gT4yN9rU7jM5xC1kL8oV6qP3tG2nF4hR9yJ7wK1uO5mL8dT3pN0vS2qX4gW6rY9jC7nU5oK1tM8hF4lD2pN0mR7vG3yO6uJ9kL1sT5wQ8gN4cP2rY6mJ7oL9nF1uT3hV5xW8dK0gO2pR6yJ7mL4tN9vC1oU3hG8kF5jQ0rN2wM6uY4lT9gJ7xV5oK1pE3nR8hD0mW2uC6qT4yN9oF7vJ1lM5gK8rP3hX0tN2uO6jL9yV4mC1oR5kW7dT3pN8uG2hF4jY0vL9mK7qN5oT3rJ8gW1uC6yV4nX2hD9pM7lO5mK1tR3jU8wN6vQ0gF2oY9hC4pJ7mL5rT8nV1dK6uM2oX3yG4qW0";
+    int count = 0 ;
+
+    for(char ch:testStr){
+        if ( ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ){
+            count++ ;
+        }
+    }
+    cout << count << endl ;
+
+    
+    return 0 ; 
+}
