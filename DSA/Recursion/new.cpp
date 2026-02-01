@@ -9,7 +9,7 @@ int fact(int n){
 
 int main()
 {
-    int ans = fact(10);
+    int ans = fact(5);
     cout << ans << endl ;
     return 0 ; 
 }
