@@ -14,7 +14,7 @@ void toh(int n, int a, int b, int c){
 
 int main()
 {
-    int n = 3 ;
+    int n = 4 ;
     cout << "The total moves for " << n << " disks are : " << pow(2,n) - 1 << endl;
     toh(n,1,2,3);
     return 0 ; 
