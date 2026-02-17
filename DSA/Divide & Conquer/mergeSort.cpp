@@ -32,7 +32,7 @@ void printArray(int arr[], int n){
 
 int main()
 {
-    int arr[6] = {6,3,7,5,2,4};
+    int arr[] = {6,3,7,5,2,4,9};
     int n = sizeof(arr)/sizeof(arr[0]) ;
     mergeSort(arr,0,n-1);
     printArray(arr,n);
