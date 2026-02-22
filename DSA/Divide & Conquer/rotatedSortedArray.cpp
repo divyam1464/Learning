@@ -22,7 +22,7 @@ int search(int arr[], int si, int ei, int target){
             return search(arr,mid+1,ei,target);
         }
     }
-    // Line - 2 .
+    // Line - 2 
     else{
         if ( arr[mid] <= target && target <= arr[ei] ){
             // right half 
