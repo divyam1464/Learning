@@ -2,7 +2,6 @@
 #include<vector>
 using namespace std ;
 
-// 
 void merge(vector<string>& arr, int left, int mid, int right){
     vector<string> temp ;
     int i = left ;
