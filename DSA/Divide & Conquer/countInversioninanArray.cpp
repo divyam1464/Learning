@@ -46,7 +46,7 @@ int mergeSort(vector<int>& arr, int s, int e){
 int main()
 {
     vector<int> arr = {1,3,5,10,2,6,8,9};
-    // vector<int> arr = {6,3,5,2,7};
+    // vector<int> arr = {6,3,5,2,7}; ;
 
     int ans = mergeSort(arr,0,arr.size()-1);
     cout << "The inversion count is : " << ans << endl ;
