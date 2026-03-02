@@ -22,7 +22,7 @@ void insertionSort(int arr[], int n){
 }
 
 int main()
-{ // 
+{
     int arr[] = {2,1,3,4,5};
     insertionSort(arr,5);
     return 0 ; 
