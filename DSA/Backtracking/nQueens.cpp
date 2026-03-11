@@ -11,7 +11,7 @@ void printBoard(vector<vector<char>> board){
         }
         cout << endl ;
     }
-    cout << "\n-----------------\n\n";
+    cout << "\n------------------\n\n";
 }
 
 bool isSafe(vector<vector<char>> board, int row, int j){
