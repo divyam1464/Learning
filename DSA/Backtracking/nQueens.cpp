@@ -60,7 +60,7 @@ int nQueens(vector<vector<char>> board, int row){
     }
     return count ;
 }
-// mai
+// 
 
 int main()
 {
