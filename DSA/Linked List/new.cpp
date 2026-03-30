@@ -132,6 +132,18 @@ class List{
         int searchRec(int key){
             return helper(head,key);
         }
+        void reverse(){
+            Node *prev = NULL ;
+            Node *curr = head ;
+
+            while(curr != NULL){
+                Node *next = curr -> next ;
+                curr -> next = prev ;
+                prev = curr ;
+                curr = next ;
+            }
+            head = prev ;
+        }
 };
 
 int main()
@@ -143,6 +155,7 @@ int main()
     ll.push_front(2);
     ll.push_front(1);
     ll.printList();
-    cout << ll.searchRec(4) << endl ;
+    ll.reverse();
+    ll.printList();
     return 0 ; 
 }
