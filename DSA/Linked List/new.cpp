@@ -136,6 +136,9 @@ class List{
             Node *prev = NULL ;
             Node *curr = head ;
 
+            // to update tail also 
+            tail = head ;
+
             while(curr != NULL){
                 Node *next = curr -> next ;
                 curr -> next = prev ;
@@ -143,6 +146,48 @@ class List{
                 curr = next ;
             }
             head = prev ;
+        }
+        int getSize(){
+            Node *temp = head ;
+            int size = 0 ;
+            while(temp != NULL){
+                temp = temp -> next ;
+                size ++ ;
+            }
+            return size ;
+        }
+        void removeNth(int n){
+            int size = getSize();
+            Node *prev = head ;
+            for(int i=1; i<(size-n); i++){
+                prev = prev -> next ;
+            }
+
+            // print the node which we are going to delete
+            Node *toDelete = prev->next ;
+            cout << "Going to delete : " << toDelete -> data << endl ;
+            prev -> next = prev -> next -> next ;
+        }
+        void custom(){
+            Node *temp = head ;
+            while(temp -> next != NULL){
+                temp = temp -> next ;
+            }
+            cout << temp -> data << endl << temp -> next << endl ;
+        }
+        bool isCycle(){
+            Node *slow = head;
+            Node *fast = head;
+            while(fast != NULL && fast -> next != NULL){
+                slow = slow -> next ;
+                fast = fast -> next -> next ;
+                if(slow == fast){
+                    cout << "Cycle Exists\n";
+                    return true ;
+                }
+            }
+            cout << "Cycle do not exists\n";
+            return false ;
         }
 };
 
@@ -155,7 +200,7 @@ int main()
     ll.push_front(2);
     ll.push_front(1);
     ll.printList();
-    ll.reverse();
-    ll.printList();
+    ll.tail->next = ll.head; // to create a cycle
+    ll.isCycle();
     return 0 ; 
 }
