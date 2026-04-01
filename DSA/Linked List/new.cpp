@@ -189,6 +189,59 @@ class List{
             cout << "Cycle do not exists\n";
             return false ;
         }
+        void removeCycle(){
+            Node *slow = head , *fast = head ;
+            bool isCycle = false ;
+
+            // 1. Detect Cycle
+            while(fast != NULL && fast -> next != NULL){
+                slow = slow -> next ;
+                fast = fast -> next -> next ;
+                if(slow == fast){
+                    isCycle = true ;
+                    cout << "cycle exists\n";
+                    break ;
+                }
+            }
+
+            // checking that the cycle exists or not
+            if(!isCycle){
+                cout << "Cycle do not exists\n";
+                return ;
+            }
+
+            // 2. slow == head 
+            slow = head ;
+            
+            // Special Case when slow and fast meets at the head point node
+            if(slow == fast){
+                while(fast -> next != slow){
+                    fast = fast -> next ;
+                }
+                // removing the cycle
+                fast -> next = NULL ; 
+            }
+            else{
+                Node *prev = fast ;
+                while(slow != fast){
+                    slow = slow -> next ;
+                    prev = fast ;
+                    fast = fast -> next ;
+                }
+                // 3. Removing the cycle
+                prev -> next = NULL ;
+            }
+        }
+        void mergeSort(Node *head){
+            if(head == NULL || head -> next == NULL){
+                return ;
+            }
+
+            Node *rightHead = splitAtMid(head);
+            mergeSort(head); // left half
+            mergeSort(rightHead); // right half
+            merge(head, rightHead); // merge function to be called
+        }
 };
 
 int main()
@@ -199,8 +252,5 @@ int main()
     ll.push_front(3);
     ll.push_front(2);
     ll.push_front(1);
-    ll.printList();
-    ll.tail->next = ll.head; // to create a cycle
-    ll.isCycle();
     return 0 ; 
 }
