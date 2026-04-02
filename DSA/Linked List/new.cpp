@@ -1,4 +1,5 @@
 #include<iostream>
+#include<list>
 using namespace std ; 
 
 class Node{
@@ -232,15 +233,61 @@ class List{
                 prev -> next = NULL ;
             }
         }
-        void mergeSort(Node *head){
+        Node* splitAtMid(Node *head){
+            Node *slow = head, *fast = head ;
+            Node *prev = NULL ;
+            while(fast != NULL && fast -> next != NULL){
+                prev = slow ;
+                slow = slow -> next ;
+                fast = fast -> next -> next ;
+            }
+
+            if(prev != NULL){
+                prev -> next = NULL; // split at middle
+
+            }
+            return slow ; // slow = rightHead
+
+        }
+        Node* merge(Node* left, Node *right){
+            list<int> ans ;
+            Node* i = left ;
+            Node *j = right ;
+
+            while(i != NULL && j != NULL){
+                if (i -> data <= j -> data){
+                    ans.push_back(i -> data);
+                    i = i -> next ;
+                }
+                else{
+                    ans.push_back(j -> data);
+                    j = j -> next ;
+                }
+            }
+
+            // to travel the remaining first and second linked list
+            while(i != NULL){
+                ans.push_back(i -> data);
+                i = i -> next ;
+                
+            }
+            while(j != NULL){
+                ans.push_back(j -> data);
+                j = j -> next ;
+            }
+            return ans.head ;
+        }
+        Node* mergeSort(Node *head){
             if(head == NULL || head -> next == NULL){
-                return ;
+                return head ;
             }
 
             Node *rightHead = splitAtMid(head);
-            mergeSort(head); // left half
-            mergeSort(rightHead); // right half
-            merge(head, rightHead); // merge function to be called
+
+            Node* left = mergeSort(head); // left half
+            Node* right = mergeSort(rightHead); // right half
+
+            return merge(left, right); // head of sorted ll
         }
 };
 
@@ -252,5 +299,9 @@ int main()
     ll.push_front(3);
     ll.push_front(2);
     ll.push_front(1);
+
+    // for merge sort in ll 
+    ll.head = mergeSort(ll.head);
+    ll.printList();
     return 0 ; 
 }
