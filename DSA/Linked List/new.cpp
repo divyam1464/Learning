@@ -275,7 +275,7 @@ class List{
                 ans.push_back(j -> data);
                 j = j -> next ;
             }
-            return ans.head ;
+            return head ;
         }
         Node* mergeSort(Node *head){
             if(head == NULL || head -> next == NULL){
@@ -291,6 +291,69 @@ class List{
         }
 };
 
+Node* splitAtMid(Node *head){
+            Node *slow = head, *fast = head ;
+            Node *prev = NULL ;
+            while(fast != NULL && fast -> next != NULL){
+                prev = slow ;
+                slow = slow -> next ;
+                fast = fast -> next -> next ;
+            }
+
+            if(prev != NULL){
+                prev -> next = NULL; // split at middle
+
+            }
+            return slow ; // slow = rightHead
+
+}
+
+Node* reverse(Node *head){
+    Node* prev = NULL ;
+    Node* curr = head ;
+    Node* next = NULL ;
+    while(curr != NULL){
+        next = curr -> next ;
+        curr -> next = prev ;
+
+        prev = curr ;
+        curr = next ;
+    }
+
+    // now prev is head of current reversed linked list
+    return prev ;
+
+}
+
+Node* zigzagLL(Node *head){
+
+    Node *rightHead = splitAtMid(head);
+    Node *rightHeadReverse =  reverse(rightHead);
+
+    // alternate merging for two lists
+    Node* left = head ;
+    Node* right = rightHeadReverse ;
+    Node* tail = right ;
+
+    while(left != NULL && right != NULL){
+        Node *nextLeft = left -> next ;
+        Node *nextRight = right -> next ;
+
+        left -> next = right  ;
+        right -> next = nextLeft ;
+        tail = right ;
+
+        left = nextLeft ;
+        right = nextRight ; 
+    }
+    // in case of odd size linked list 
+    if(right != NULL){
+        tail -> next = right ;
+    }
+    return head ;
+
+}
+
 int main()
 {
     List ll;
@@ -301,7 +364,10 @@ int main()
     ll.push_front(1);
 
     // for merge sort in ll 
-    ll.head = mergeSort(ll.head);
+    // ll.head = mergeSort(ll.head); 
+    ll.printList();
+
+    zigzagLL(ll.head);
     ll.printList();
     return 0 ; 
 }
