@@ -62,6 +62,7 @@ int main()
     ll.printList();
     ll.pop_front();
     ll.printList();
+    ll.printList();
     
     
     return 0 ; 
