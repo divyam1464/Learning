@@ -55,6 +55,7 @@ int main()
 {
     DoublyList ll ;
 
+    ll.push_front(9);
     ll.push_front(8);
     ll.push_front(7);
     ll.push_front(6);
