@@ -37,6 +37,7 @@ int main()
     s.push(1);
     s.push(0);
     s.push(-1);
+    s.push(-2);
 
     while(!s.isEmpty()){
         cout << s.top() << endl ;
