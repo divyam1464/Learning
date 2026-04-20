@@ -107,7 +107,7 @@ void maxAreaHistogram(vector<int> height){
     printArray(nsr) ;
 
 
-    // now let's calculate the area of the rectangles 
+    // now let's calculate the area of the rectangle
     int maxArea = 0 ;
     for(int i = 0 ; i < height.size(); i++){
         int ht = height[i] ;
