@@ -16,7 +16,7 @@ int main()
 {
     int n , x ;
     cout << "Enter the number : " ; cin >> n ;
-    cout << "Enter the power : " ; cin >> x ;
+    cout << "Enter the power :  " ; cin >> x ;
     fastExpo(n,x);
     return 0 ; 
 }
