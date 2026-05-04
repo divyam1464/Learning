@@ -4,7 +4,7 @@ using namespace std ;
 
 int maxActivities(vector<int> start, vector<int> end){
     // 1. sort on basis of end time -> already done 
-    // A0 ko select kr rhe hai 
+    // A0 ko select kr rhe hai by default as a good one as array is already sorted based on end time
     cout << "Selecting Activity : A0 \n" ;
     int count = 1 ;
     int currEndTime = end[0] ;
